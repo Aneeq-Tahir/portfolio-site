@@ -2,25 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+@keyframes spin-reverse {
+    from {
+        transform: rotate(160deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background-color: rgb(var(--background-rgb))
-}
+@layer base {}
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .transform-box {
+        transform-box: fill-box !important;
+    }
+    .animate-reverse {
+        animation: spin-reverse 0.75s ease-out forwards;
+    }
 }
